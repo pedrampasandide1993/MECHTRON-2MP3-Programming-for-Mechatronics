@@ -1,0 +1,334 @@
+\documentclass[12pt]{article}
+\usepackage{ragged2e} % load the package for justification
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{fadings}
+\usepackage{filecontents}
+\usepackage{multirow}
+\usepackage{amsmath}
+\pgfplotsset{width=10cm,compat=1.17}
+\setlength{\parskip}{0.75em} % Set the space between paragraphs
+\usepackage{setspace}
+\setstretch{1.2} % Adjust the value as per your preference
+\usepackage[margin=2cm]{geometry} % Adjust the margin
+\setlength{\parindent}{0pt} % Adjust the value for starting paragraph
+\usetikzlibrary{arrows.meta}
+\usepackage{mdframed}
+\usepackage{float}
+
+\usepackage{hyperref}
+
+% to remove the hyperline rectangle
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	urlcolor=blue
+}
+
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\usepackage{lipsum} % Example text package
+\usepackage{fancyhdr} % Package for customizing headers and footers
+
+
+
+% Define the orange color
+\definecolor{myorange}{RGB}{255,65,0}
+% Define a new color for "cherry" (dark red)
+\definecolor{cherry}{RGB}{148,0,25}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Apply the custom footer to all pages
+\pagestyle{fancy}
+
+% Redefine the header format
+\fancyhead{}
+\fancyhead[R]{\textcolor{orange!80!black}{\itshape\leftmark}}
+
+\fancyhead[L]{\textcolor{black}{\thepage}}
+
+
+% Redefine the footer format with a line before each footnote
+\fancyfoot{}
+\fancyfoot[C]{\footnotesize P. Pasandide, McMaster University, Programming for Mechatronics - MECHTRON 2MP3. \footnoterule}
+
+% Redefine the footnote rule
+\renewcommand{\footnoterule}{\vspace*{-3pt}\noindent\rule{0.0\columnwidth}{0.4pt}\vspace*{2.6pt}}
+
+% Set the header rule color to orange
+\renewcommand{\headrule}{\color{orange!80!black}\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}
+
+% Set the footer rule color to orange (optional)
+\renewcommand{\footrule}{\color{black}\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Set the color for the section headings
+\titleformat{\section}
+{\normalfont\Large\bfseries\color{orange!80!black}}{\thesection}{1em}{}
+
+% Set the color for the subsection headings
+\titleformat{\subsection}
+{\normalfont\large\bfseries\color{orange!80!black}}{\thesubsection}{1em}{}
+
+% Set the color for the subsubsection headings
+\titleformat{\subsubsection}
+{\normalfont\normalsize\bfseries\color{orange!80!black}}{\thesubsubsection}{1em}{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set the color for the table of contents
+\titlecontents{section}
+[1.5em]{\color{orange!80!black}}
+{\contentslabel{1.5em}}
+{}{\titlerule*[0.5pc]{.}\contentspage}
+
+% Set the color for the subsections in the table of contents
+\titlecontents{subsection}
+[3.8em]{\color{orange!80!black}}
+{\contentslabel{2.3em}}
+{}{\titlerule*[0.5pc]{.}\contentspage}
+
+% Set the color for the subsubsections in the table of contents
+\titlecontents{subsubsection}
+[6em]{\color{orange!80!black}}
+{\contentslabel{3em}}
+{}{\titlerule*[0.5pc]{.}\contentspage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set a format for the codes inside a box with C format
+\lstset{
+	language=C,
+	basicstyle=\ttfamily,
+	backgroundcolor=\color{blue!5},
+	keywordstyle=\color{blue},
+	commentstyle=\color{codegreen},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	breaklines=true,
+	frame=single,
+	rulecolor=\color{lightgray!35}, % Set the color of the frame
+	numbers=none,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	tabsize=1,
+	morekeywords={include},
+	alsoletter={\#},
+	otherkeywords={\#}
+}
+
+
+
+
+%\input listings.tex
+
+
+
+% Define a command for inline code snippets with a colored and rounded box
+\newtcbox{\codebox}[1][gray]{on line, boxrule=0.2pt, colback=blue!5, colframe=#1, fontupper=\color{cherry}\ttfamily, arc=2pt, boxsep=0pt, left=2pt, right=2pt, top=3pt, bottom=2pt}
+
+
+
+
+\tikzset{%
+	every neuron/.style={
+		circle,
+		draw,
+		minimum size=1cm
+	},
+	neuron missing/.style={
+		draw=none, 
+		scale=4,
+		text height=0.333cm,
+		execute at begin node=\color{black}$\vdots$
+	},
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define a new tcolorbox style with default options
+\tcbset{
+	myboxstyle/.style={
+		colback=orange!10,
+		colframe=orange!80!black,
+	}
+}
+
+% Define a new tcolorbox style with default options to print the output with terminal style
+
+
+\tcbset{
+	myboxstyleTerminal/.style={
+		colback=blue!5,
+		frame empty, % Set frame to empty to remove the fram
+	}
+}
+
+\mdfdefinestyle{myboxstyleTerminal1}{
+	backgroundcolor=blue!5,
+	hidealllines=true, % Remove all lines (frame)
+	leftline=false,     % Add a left line
+}
+
+
+\begin{document}
+	
+	\justifying
+	
+	\begin{center}
+		\textbf{{\large <Subject>}}
+		
+		\textbf{Developing a Basic Genetic Optimization Algorithm in C} 
+		
+		<your name>
+	\end{center}
+	
+
+	
+	
+	
+	\section{Introduction}
+	
+	
+	\section{Programming Genetic Algorithm}
+
+	\subsection{Implementation (12 points)}
+	
+	Files you have downloaded are:
+	
+	\begin{itemize}
+		\item \codebox{OF.c} (Do not change anything in it)
+		\item \codebox{functions.h} (Do not change anything in it)
+		\item \codebox{GA.c}
+		\item \codebox{functions.c}
+	\end{itemize}
+
+		
+		\begin{lstlisting}
+			#include <math.h>
+			#include "functions.h"
+			
+			double Objective_function(int NUM_VARIABLES, double x[NUM_VARIABLES])
+			{
+				double sum1 = 0.0, sum2 = 0.0;
+				for (int i = 0; i < NUM_VARIABLES; i++)
+				{
+					sum1 += x[i] * x[i];
+					sum2 += cos(2.0 * M_PI * x[i]);
+				}
+				return -20.0 * exp(-0.2 * sqrt(sum1 / NUM_VARIABLES)) - exp(sum2 / NUM_VARIABLES) + 20.0 + M_E;
+			}
+		\end{lstlisting}
+	
+	
+
+	
+	
+	The number of decision variables in the optimization problem is set to 2, with upper and lower bounds for both decision variables set to +5 and -5, respectively:
+	
+	\begin{lstlisting}
+		int NUM_VARIABLES = 2;
+		double Lbound[] = {-5.0, -5.0};
+		double Ubound[] = {5.0, 5.0};
+	\end{lstlisting}
+	
+	
+	\begin{mdframed}[style=myboxstyleTerminal1]
+		\begin{verbatim}
+			Genetic Algorithm is initiated.
+			------------------------------------------------
+			The number of variables: 2
+			Lower bounds: [-5.000000, -5.000000]
+			Upper bounds: [5.000000, 5.000000]
+			
+			Population Size:   100
+			Max Generations:   10000
+			Crossover Rate:    0.500000
+			Mutation Rate:     0.100000
+			Stopping criteria: 0.0000000000000001
+			
+			Results
+			------------------------------------------------
+			CPU time: 1.143935 seconds
+			Best solution found: (-0.0001323239496775, -0.0000225231135396)
+			Best fitness: 0.0003801313729501
+		\end{verbatim}
+	\end{mdframed}
+	
+	 
+	\begin{table}[h!]
+		\caption{Results with Crossover Rate = 0.5 and Mutation Rate = 0.05}
+		\label{table:1}
+		\centering
+		\begin{tabular}{c c c c c c}
+			\hline
+			Pop Size & Max Gen & \multicolumn{3}{c}{Best Solution} & CPU time (Sec) \\
+			& & $x_1$ & $x_2$ & Fitness & \\
+			\hline
+			10  & 100    &  &  & &\\
+			100 & 100    &  &  & &\\
+			1000& 100    &  &   & &\\
+			10000& 100    &  &   & &\\
+			\hline
+			1000  & 1000   &  & & &\\
+			1000 & 10000  &  &  & &\\
+			1000& 100000 &  &   & &\\
+			1000& 1000000 &  &   & &\\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[h!]
+		\caption{Results with Crossover Rate = 0.5 and Mutation Rate = 0.2}
+		\label{table:1}
+		\centering
+		\begin{tabular}{c c c c c c}
+			\hline
+			Pop Size & Max Gen & \multicolumn{3}{c}{Best Solution} & CPU time (Sec) \\
+			& & $x_1$ & $x_2$ & Fitness & \\
+			\hline
+			10  & 100    &  &  & &\\
+			100 & 100    &  &  & &\\
+			1000& 100    &  &   & &\\
+			10000& 100    &  &   & &\\
+			\hline
+			1000  & 1000   &  & & &\\
+			1000 & 10000  &  &  & &\\
+			1000& 100000 &  &   & &\\
+			1000& 1000000 &  &   & &\\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	
+	\subsection{Report and \codebox{Makefile} (3 points)}
+	
+	
+	
+	\subsection{Improving the Performance - Bonus (+1 points)}
+	
+	
+	
+	
+	\subsection{Bonus (+3 points) - Only the fastest program!}
+	
+	
+
+	 
+	
+	\section{Appendix}
+	
+	
+\end{document}
