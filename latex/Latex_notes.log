@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.13)  27 NOV 2023 08:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.13)  29 NOV 2023 10:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1115,14 +1115,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [5]
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 3
-62.
- (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
-File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 362.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1132,6 +1124,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [6]
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 3
+65.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 365.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1142,13 +1142,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [7]
 LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 
-429.
-LaTeX Font Info:    No file OMScmtt.fd. on input line 429.
+432.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 432.
 
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbackslash' on input line 429.
+(Font)              for symbol `textbackslash' on input line 432.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1232,7 +1232,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [16]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-894.
+897.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
@@ -1245,17 +1245,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 924--929
+Underfull \hbox (badness 10000) in paragraph at lines 927--932
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 924--929
+Underfull \hbox (badness 10000) in paragraph at lines 927--932
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 924--929
+Underfull \hbox (badness 10000) in paragraph at lines 927--932
 
  []
 
@@ -1304,11 +1304,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [22]
-Package pgfplots info on input line 1123: Using 'lua backend=false' for axis: x
+Package pgfplots info on input line 1126: Using 'lua backend=false' for axis: x
  coord trafo unsupported.
-Package pgfplots info on input line 1154: Using 'lua backend=false' for axis: s
+Package pgfplots info on input line 1157: Using 'lua backend=false' for axis: s
 tacked plots unsupported (yet).
-Package pgfplots info on input line 1154: Using 'lua backend=false' for axis: x
+Package pgfplots info on input line 1157: Using 'lua backend=false' for axis: x
  coord trafo unsupported.
 
 
@@ -1371,13 +1371,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [28]
-Overfull \hbox (3.8699pt too wide) in paragraph at lines 1300--1301
+Overfull \hbox (3.8699pt too wide) in paragraph at lines 1303--1304
 \OT1/cmr/m/n/12 To dis-play a block of C code with syn-tax high-light-ing and l
 ine num-bers, you can use the []
  []
 
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 1302.
+nput line 1305.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1408,15 +1408,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [31]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
-413.
+416.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1413.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1416.
 
 
-Overfull \hbox (18.48691pt too wide) in paragraph at lines 1433--1434
+Overfull \hbox (18.48691pt too wide) in paragraph at lines 1436--1437
 [][]\OT1/cmr/m/n/12 : These op-tions de-fine the padding (space)
  []
 
@@ -1437,7 +1437,82 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[33] (./Latex_notes.aux)
+[33]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[34]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[35]
+Overfull \hbox (12.78987pt too wide) in paragraph at lines 1571--1572
+[][]\OT1/cmr/m/n/12 : Sets the right-
+ []
+
+
+Overfull \hbox (3.30028pt too wide) in paragraph at lines 1587--1588
+[][]\OT1/cmr/m/n/12 : Op-tion-ally sets the footer rule color to black (black)
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[36]
+Overfull \hbox (67.72244pt too wide) in paragraph at lines 1638--1639
+[]\OT1/cmr/m/n/12 Bibliography Style: Se-lect a bib-li-og-ra-phy style (e.g.,[]
+, [], []) us-ing the []
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[37]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1674.
+
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1681.
+
+ (./Latex_notes.bbl
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[38])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[39] (./Latex_notes.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1445,11 +1520,11 @@ Package rerunfilecheck Info: File `Latex_notes.out' has not changed.
 (rerunfilecheck)             Checksum: 420501C47CB78E69A419E66E5AF07843;3910.
  ) 
 Here is how much of TeX's memory you used:
- 39124 strings out of 478287
- 890845 string characters out of 5849289
- 1601756 words of memory out of 5000000
- 56439 multiletter control sequences out of 15000+600000
- 475805 words of font info for 51 fonts, out of 8000000 for 9000
+ 39532 strings out of 478287
+ 896585 string characters out of 5849289
+ 1672840 words of memory out of 5000000
+ 56758 multiletter control sequences out of 15000+600000
+ 476362 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,19n,105p,724b,2338s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
@@ -1467,10 +1542,10 @@ texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf/fonts/
 type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-supe
 r/sftt1200.pfb>
-Output written on Latex_notes.pdf (33 pages, 288670 bytes).
+Output written on Latex_notes.pdf (39 pages, 322003 bytes).
 PDF statistics:
- 698 PDF objects out of 1000 (max. 8388607)
- 599 compressed objects within 6 object streams
- 283 named destinations out of 1000 (max. 500000)
+ 828 PDF objects out of 1000 (max. 8388607)
+ 721 compressed objects within 8 object streams
+ 369 named destinations out of 1000 (max. 500000)
  237 words of extra memory for PDF output out of 10000 (max. 10000000)
 

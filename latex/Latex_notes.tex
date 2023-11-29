@@ -270,9 +270,7 @@
 	    	\end{verbatim}
 	    \end{mdframed} 
 	\end{enumerate}
-	
-	
-	
+
 	
 	
 	
@@ -290,6 +288,11 @@
 		\begin{document}
 			Hello, McMaster!
 		\end{document}
+	\end{lstlisting}
+
+
+	\begin{lstlisting}
+		fsajfdoslfns
 	\end{lstlisting}
 	
 	Open your terminal window and navigate to the directory where you saved the ".tex" file. Once you have written your LaTeX code, you can compile it to create a PDF document. To do this, you need to use a LaTeX compiler such as pdflatex, xelatex, or lualatex. You can compile your LaTeX document from the command line using a command like:
@@ -1444,46 +1447,260 @@
 	
 	
 	
-	\section{Tables of Contents}
+	\section{Tables of Contents} \label{sec:TOC}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	\section{Reference} \label{sec:Reference}
-	
-	% to remove the hyperline rectangle
+	You can customize the appearance of \codebox{section},  \codebox{subsection}, and  \codebox{subsubsection} headings, as well as the entries in the table of contents (TOC) for these sections. At the top of this file we have:
 	
 	\begin{lstlisting}[style=latexstyle]
-		% to remove the hyperline rectangle
-		\hypersetup{
-			colorlinks=true,
-			linkcolor=black,
-			urlcolor=blue
-		}
+		% Set the color for the section headings
+		\titleformat{\section}
+		{\normalfont\Large\bfseries\color{orange!80!black}}{\thesection}{1em}{}
+		
+		% Set the color for the subsection headings
+		\titleformat{\subsection}
+		{\normalfont\large\bfseries\color{orange!80!black}}{\thesubsection}{1em}{}
+		
+		% Set the color for the subsubsection headings
+		\titleformat{\subsubsection}
+		{\normalfont\normalsize\bfseries\color{orange!80!black}}{\thesubsubsection}{1em}{}
+	\end{lstlisting}
+	
+	Here's a breakdown of what each part does:
+	
+	\begin{itemize}
+		\item \codebox{\textbackslash titleformat\{\textbackslash section\}}: Modifies the appearance of section headings.
+		\item \codebox{\textbackslash titleformat\{\textbackslash subsection\}}: Modifies the appearance of subsection headings.
+		\item \codebox{\textbackslash titleformat\{\textbackslash subsubsection\}}: Modifies the appearance of subsubsection headings.
+	\end{itemize}
+	
+	For each of the above the part \codebox{\textbackslash normalfont\textbackslash Large\textbackslash bfseries\textbackslash color\{orange!80!black\}}:
+	
+	\begin{itemize}
+		\item \codebox{\textbackslash Large}: Sets the font size to "large".
+		\item \codebox{\textbackslash bfseries}: Makes the text bold.
+		\item \codebox{\textbackslash color\{orange!80!black\}}: Sets the text color to a mix of 80\% orange and 20\% black.
+	\end{itemize}
+
+	\codebox{\textbackslash tableofcontents} is a command in LaTeX used to generate the table of contents (TOC) based on the document's sectioning commands (such as \codebox{\textbackslash section}, \codebox{\textbackslash subsection}, etc.) and their associated titles. You can modify how the table looks like by:
+	
+	\begin{lstlisting}[style=latexstyle]
+		% Set the color for the table of contents
+		\titlecontents{section}
+		[1.5em]{\color{orange!80!black}}
+		{\contentslabel{1.5em}}
+		{}{\titlerule*[0.5pc]{.}\contentspage}
+		
+		% Set the color for the subsections in the table of contents
+		\titlecontents{subsection}
+		[3.8em]{\color{orange!80!black}}
+		{\contentslabel{2.3em}}
+		{}{\titlerule*[0.5pc]{.}\contentspage}
+		
+		% Set the color for the subsubsections in the table of contents
+		\titlecontents{subsubsection}
+		[6em]{\color{orange!80!black}}
+		{\contentslabel{3em}}
+		{}{\titlerule*[0.5pc]{.}\contentspage}
 	\end{lstlisting}
 	
 	
+	Here's a breakdown of what each part does:
+	
+	\begin{itemize}
+		\item \codebox{\textbackslash titlecontents\{section\}}: Customizes the appearance of section entries in the table of contents.
+		\item \codebox{\textbackslash titlecontents\{subsection\}}: Customizes the appearance of subsection entries in the TOC.
+		\item \codebox{\textbackslash titlecontents\{subsubsection\}}: Customizes the appearance of subsubsection entries in the TOC.
+	\end{itemize}
 	
 	
 	
+	For each of the TOC entries:
+	
+	\begin{itemize}
+		
+		\item \codebox{[1.5em]}, \codebox{[3.8em]}, \codebox{[6em]}: Adjusts the horizontal space allocated for the entry label.
+		
+		\item \codebox{\textbackslash color\{orange!80!black\}}: Sets the color of the TOC entry text to a mix of 80\% orange and 20\% black.
+		
+		\item \codebox{\textbackslash contentslabel\{1.5em\}}, \codebox{\textbackslash contentslabel\{2.3em\}}, \codebox{\textbackslash contentslabel\{3em\}}: Sets the indentation of the label in the TOC.
+		
+		\item \codebox{\textbackslash titlerule*[0.5pc]\{.\}\textbackslash contentspage}: Specifies the formatting of the entry, including vertical spacing, horizontal rule, and page numbers.
+	\end{itemize}
+	
+	Overall, this code snippet is used to customize the appearance of sectioning headings (section, subsection, subsubsection) and their corresponding entries in the table of contents by changing their font size, weight (boldness), and color. Adjustments are made to their label indentation and formatting within the TOC as well.
 	
 	
 	
+	Also, you can customize the header and footer styles for the pages in your document using:
 	
 	
-	\textbf{linking a text file to a website, to a part of document, or mentioning an article as reference}
+	\begin{lstlisting}[style=latexstyle]
+		% Apply the custom footer to all pages
+		\pagestyle{fancy}
+		
+		% Redefine the header format
+		\fancyhead{}
+		\fancyhead[R]{\textcolor{orange!80!black}{\itshape\leftmark}}
+		
+		\fancyhead[L]{\textcolor{black}{\thepage}}
+		
+		
+		% Redefine the footer format with a line before each footnote
+		\fancyfoot{}
+		\fancyfoot[C]{\footnotesize P. Pasandide, McMaster University, Computer Science Practice and Experience: Development Basics. \footnoterule}
+		
+		% Redefine the footnote rule
+		\renewcommand{\footnoterule}{\vspace*{-3pt}\noindent\rule{0.0\columnwidth}{0.4pt}\vspace*{2.6pt}}
+		
+		% Set the header rule color to orange
+		\renewcommand{\headrule}{\color{orange!80!black}\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}
+		
+		% Set the footer rule color to orange (optional)
+		\renewcommand{\footrule}{\color{black}\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}
+	\end{lstlisting}
 	
-	linking  to table or figure 
 	
+	Here's a breakdown of each command:
 	
-	In \autoref{fig:scatter_pedram}, we can see the scatter plot representing the relationship between X and Y.
+	\begin{itemize}
+		\item \codebox{\textbackslash pagestyle\{fancy\}}: Applies the custom page style fancy to all pages. This style allows the customization of headers and footers.
+		
+		\item \textbf{Header Formatting}:
+		\begin{itemize}
+			\item \codebox{\textbackslash fancyhead\{\}}: Clears the default header settings.
+			\item \codebox{\textbackslash fancyhead[R]\{\textbackslash textcolor\{orange!80!black\}\{\textbackslash itshape\textbackslash leftmark\}\}}: Sets the right-side header to display the section name (using \codebox{\textbackslash leftmark}) in italic font and orange color (\codebox{orange!80!black}).
+			\item \codebox{\textbackslash fancyhead[L]\{\textbackslash textcolor\{black\}\{\textbackslash thepage\}\}}: Sets the left-side header to display the page number in black.
+		\end{itemize}
+	
+		\item \textbf{Footer Formatting}:
+		
+		\begin{itemize}
+			\item \codebox{\textbackslash fancyfoot\{\}}: Clears the default footer settings.
+			\item \codebox{\textbackslash fancyfoot[C]\{\textbackslash footnotesize ...\}}: Sets the center part of the footer to display a customized footnote text, including author, university, and a publication reference.
+		\end{itemize}
+		
 
+		\item \textbf{Footer Rule Customization}:
+		\begin{itemize}
+			\item \codebox{\textbackslash renewcommand\{\textbackslash footnoterule\}\{...\}}: Redefines the format of the rule before footnotes, adjusting its width, height, and spacing.
+			\item \codebox{\textbackslash renewcommand\{\textbackslash headrule\}\{...\}}: Redefines the header rule's color to orange (orange!80!black) and sets its width and height.
+			\item \codebox{\textbackslash renewcommand\{\textbackslash footrule\}\{...\}}: Optionally sets the footer rule color to black (black) and adjusts its width, height, and spacing.
+		\end{itemize}
+		
+	\end{itemize}
+
+	This block of code establishes a custom page style (\codebox{fancy}) and sets specific formatting for headers and footers. It defines rules and footnotes' appearance, utilizing colors, widths, heights, and text styles to create a distinctive header and footer design across all pages of your document. Adjustments can be made to these settings to suit your desired layout and styling preferences.
+	
+
+	
+	\section{Reference} \label{sec:Reference}
+	
+
+	Here's an overview of referencing methods in LaTeX that so far we worked with:
+	
+	\begin{enumerate}
+		\item \codebox{\textbackslash href\{URL\}\{text\}}
+		
+		\begin{itemize}
+			\item Purpose: Creates a hyperlink to an external URL.
+			\item Usage: \codebox{\textbackslash href\{URL\}\{text\}} creates a clickable link to an external website.
+			\item Example: \href{https://github.com/pedrampasandide1993}{My GitHub} generates a link to my github.
+		\end{itemize}
+		
+		\item \codebox{\textbackslash hyperref[label]\{text\}}
+		
+		\begin{itemize}
+			\item Purpose: Creates an internal hyperlink within the document.
+			\item Usage: \codebox{\textbackslash hyperref[label]\{text\}} references a labeled part within the same document.
+			\item Example: \hyperref[sec:TOC]{Table of Contents} links to a section labeled as "sec:TOC."
+		\end{itemize}
+
+		\item \codebox{\textbackslash autoref\{label\}}
+		
+		\begin{itemize}
+			\item Purpose: Automatically generates references with context.
+			\item Usage: \codebox{\textbackslash autoref\{label\}} generates references to figures, tables, sections, etc., adding the appropriate label (e.g., "Figure," "Table") and its number.
+			\item Example: \autoref{fig:scatter_pedram} references a figure labeled as "fig:scatter\_pedram."
+		\end{itemize}
+		
+
+	\end{enumerate}
+	
+	These referencing methods allow you to create both internal and external links within your LaTeX document, referencing various elements like websites, internal document sections, figures, tables, etc. \codebox{\textbackslash autoref} specifically generates references with appropriate labels and numbers based on the referenced element type. Adjust labels and text to match the specific content and structure of your document.
+	
+	
+	Sometimes you want to refer to an article or published paper. Using \codebox{\textbackslash cite\{\}} for scientific referencing involves several steps:
+	
+	\textbf{Step 1: Document Setup}
+	
+	Document Class: Choose a document class that supports bibliography and citations, such as \codebox{article}, \codebox{report}, or \codebox{book}.
+	
+	Bibliography Style: Select a bibliography style (e.g.,\codebox{plain}, \codebox{IEEEtran}, \codebox{apa}) using the \codebox{\textbackslash bibliographystyle\{\}} command.
+	
+	\textbf{Step 2: Insert Citations}
+	
+	Create a Bibliography File: Start by creating a separate \codebox{.bib} file (e.g., \codebox{nano references.bib}) to store your bibliography entries.
+	
+	Add Citations: Inside the \codebox{.bib} file, add entries for each reference in BibTeX format. For example:
+	
+	\begin{lstlisting}
+		@article{PASANDIDE202130005,
+			title = {Simulation and optimization of continuous catalytic reforming: Reducing energy cost and coke formation},
+			journal = {International Journal of Hydrogen Energy},
+			volume = {46},
+			number = {58},
+			pages = {30005-30018},
+			year = {2021},
+			issn = {0360-3199},
+			doi = {},
+			url = {},
+			author = {Pedram Pasandide and Mohammad Rahmani},
+			abstract = {}
+		}
+	\end{lstlisting}
+	
+	Google on how you can get \codebox{.bib} format of an article or a book!
+	
+	
+	\textbf{Step 3: Incorporate Citations in Document}
+	
+	Cite References: Within your LaTeX document, use \codebox{\textbackslash cite\{\}} to reference these entries.
+	
+	Example: \cite{PASANDIDE202130005} will cite the Pasandide (2021) article.
+	
+	Insert Bibliography: Use \codebox{\textbackslash bibliography\{\}} to specify the \codebox{.bib} file and \codebox{\textbackslash bibliographystyle\{\}} to set the bibliography style. For example:
+	
+	\begin{lstlisting}[basicstyle=\small]
+		\bibliography{references} % Replace 'references' with your .bib file name
+		\bibliographystyle{plain} % Replace 'plain' with the style you prefer
+	\end{lstlisting}
+	
+	For instance:
+	
+	\begin{lstlisting}[basicstyle=\footnotesize]
+		\documentclass{article}
+		
+		\begin{document}
+			
+			
+			
+			\bibliographystyle{plain}
+			\bibliography{references} % Replace 'references' with your .bib file name
+			
+		\end{document}
+		
+	\end{lstlisting}
+	
+	Make sure to replace references with the actual name of your .bib file and update \codebox{\textbackslash cite\{\}} with the appropriate citation keys from your bibliography. Then, follow the compilation steps mentioned above to generate the bibliography in your document.
+	
+	This is a citation example \cite{PASANDIDE202130005}.
+	
+	
+	
+	\bibliographystyle{plain}
+	\bibliography{references} % Replace 'references' with your .bib file name
+	
+	
 	
 	
 	\clearpage
