@@ -1,0 +1,421 @@
+\documentclass[12pt]{article}
+\usepackage{ragged2e} % load the package for justification
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{fadings}
+\usepackage{filecontents}
+\usepackage{multirow}
+\usepackage{amsmath}
+\pgfplotsset{width=10cm,compat=1.17}
+\setlength{\parskip}{0.75em} % Set the space between paragraphs
+\usepackage{setspace}
+\setstretch{1.2} % Adjust the value as per your preference
+\usepackage[margin=2cm]{geometry} % Adjust the margin
+\setlength{\parindent}{0pt} % Adjust the value for starting paragraph
+\usetikzlibrary{arrows.meta}
+\usepackage{mdframed}
+\usepackage{float}
+
+\usepackage{hyperref}
+
+% to remove the hyperline rectangle
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	urlcolor=blue
+}
+
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\usepackage{lipsum} % Example text package
+\usepackage{fancyhdr} % Package for customizing headers and footers
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+% Define the orange color
+\definecolor{myorange}{RGB}{255,65,0}
+% Define a new color for "cherry" (dark red)
+\definecolor{cherry}{RGB}{148,0,25}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Apply the custom footer to all pages
+\pagestyle{fancy}
+
+% Redefine the header format
+\fancyhead{}
+\fancyhead[R]{\textcolor{orange!80!black}{\itshape\leftmark}}
+
+\fancyhead[L]{\textcolor{black}{\thepage}}
+
+
+% Redefine the footer format with a line before each footnote
+\fancyfoot{}
+\fancyfoot[C]{\footnotesize \textbf{your name}, McMaster University, MECHTRON 2MP3 - Programming for Mechatronics. \footnoterule}
+
+% Redefine the footnote rule
+\renewcommand{\footnoterule}{\vspace*{-3pt}\noindent\rule{0.0\columnwidth}{0.4pt}\vspace*{2.6pt}}
+
+% Set the header rule color to orange
+\renewcommand{\headrule}{\color{orange!80!black}\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}
+
+% Set the footer rule color to orange (optional)
+\renewcommand{\footrule}{\color{black}\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Set the color for the section headings
+\titleformat{\section}
+{\normalfont\Large\bfseries\color{orange!80!black}}{\thesection}{1em}{}
+
+% Set the color for the subsection headings
+\titleformat{\subsection}
+{\normalfont\large\bfseries\color{orange!80!black}}{\thesubsection}{1em}{}
+
+% Set the color for the subsubsection headings
+\titleformat{\subsubsection}
+{\normalfont\normalsize\bfseries\color{orange!80!black}}{\thesubsubsection}{1em}{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set the color for the table of contents
+\titlecontents{section}
+[1.5em]{\color{orange!80!black}}
+{\contentslabel{1.5em}}
+{}{\titlerule*[0.5pc]{.}\contentspage}
+
+% Set the color for the subsections in the table of contents
+\titlecontents{subsection}
+[3.8em]{\color{orange!80!black}}
+{\contentslabel{2.3em}}
+{}{\titlerule*[0.5pc]{.}\contentspage}
+
+% Set the color for the subsubsections in the table of contents
+\titlecontents{subsubsection}
+[6em]{\color{orange!80!black}}
+{\contentslabel{3em}}
+{}{\titlerule*[0.5pc]{.}\contentspage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set a format for the codes inside a box with C format
+\lstset{
+	language=C,
+	basicstyle=\ttfamily,
+	backgroundcolor=\color{blue!5},
+	keywordstyle=\color{blue},
+	commentstyle=\color{codegreen},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	breaklines=true,
+	frame=single,
+	rulecolor=\color{lightgray!35}, % Set the color of the frame
+	numbers=none,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	tabsize=1,
+	morekeywords={include},
+	alsoletter={\#},
+	otherkeywords={\#}
+}
+
+
+
+
+%\input listings.tex
+
+
+
+% Define a command for inline code snippets with a colored and rounded box
+\newtcbox{\codebox}[1][gray]{on line, boxrule=0.2pt, colback=blue!5, colframe=#1, fontupper=\color{cherry}\ttfamily, arc=2pt, boxsep=0pt, left=2pt, right=2pt, top=3pt, bottom=2pt}
+
+
+
+
+\tikzset{%
+	every neuron/.style={
+		circle,
+		draw,
+		minimum size=1cm
+	},
+	neuron missing/.style={
+		draw=none, 
+		scale=4,
+		text height=0.333cm,
+		execute at begin node=\color{black}$\vdots$
+	},
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define a new tcolorbox style with default options
+\tcbset{
+	myboxstyle/.style={
+		colback=orange!10,
+		colframe=orange!80!black,
+	}
+}
+
+% Define a new tcolorbox style with default options to print the output with terminal style
+
+
+\tcbset{
+	myboxstyleTerminal/.style={
+		colback=blue!5,
+		frame empty, % Set frame to empty to remove the fram
+	}
+}
+
+\mdfdefinestyle{myboxstyleTerminal1}{
+	backgroundcolor=blue!5,
+	hidealllines=true, % Remove all lines (frame)
+	leftline=false,     % Add a left line
+}
+
+
+\begin{document}
+	
+	\justifying
+	
+	\begin{center}
+		\textbf{{\large Assignment 4}}
+		
+		\textbf{Developing Particle Swarm Optimization (PSO) in C with Case Study} 
+		
+		\textbf{your name}
+		
+		\textbf{student number}
+	\end{center}
+	
+
+	
+	
+	
+	\section{Introduction}
+	
+	
+	
+	This is a linked based reference example: \href{https://www.sfu.ca/~ssurjano/optimization.html}{here}.
+	
+	
+	
+	
+	
+	
+
+	
+	
+	\section{Particle Swarm Optimization (PSO) Formulation}
+	
+	
+	This is an example of writing equations in Latex:
+	
+	\[
+	v_{ij}(t+1) = w \cdot v_{ij}(t) + c_1 \cdot r_1 \cdot (p_{ij} - x_{ij}(t)) + c_2 \cdot r_2 \cdot (g_j - x_{ij}(t))
+	\]
+	
+	
+	\[
+	x_{ij}(t+1) = x_{ij}(t) + v_{ij}(t+1)
+	\]
+	
+	
+	\begin{enumerate}
+		\item Evaluate the fitness of each particle at its new position: \(f(\mathbf{x}_i(t+1))\).
+		
+		\item  Update personal best:
+		
+		\[
+		\mathbf{p}_i = 
+		\begin{cases} 
+			\mathbf{x}_i(t+1) & \text{if } f(\mathbf{x}_i(t+1)) < f(\mathbf{p}_i) \\
+			\mathbf{p}_i & \text{otherwise.}
+		\end{cases}
+		\]
+		
+		\item  Update global best:
+		
+		\[
+		\mathbf{g} = \arg\min_{\mathbf{p}_i} f(\mathbf{p}_i).
+		\]
+	\end{enumerate}
+	
+	
+	
+	
+	
+	This is an example of inline codes:
+	
+	{\scriptsize \codebox{./pso <ObjectiveFunctionName> <NUM\_VARIABLES> <LowerBound> <UpperBound> <NUM\_PARTICLES> <MAX\_ITERATIONS>}}
+	
+	
+	For example \codebox{./pso griewank 8 -50 50 500 1000} is within the text.
+	
+	This is an example how I create a box to show the outputs from terminals:
+	
+	\begin{mdframed}[style=myboxstyleTerminal1]
+		\footnotesize
+		\begin{verbatim}
+			
+			Objective Function: griewank
+			The number of variables: 8
+			Lower Bound for all variables: -50.000000
+			Upper Bound for all variables:  50.000000
+			------------------------------------------------
+			PSO with is initiated:
+			Number of particles  = 500
+			Number of iterations = 1000 
+			
+			Results
+			------------------------------------------------
+			CPU time: 0.01 seconds
+			Optimal fitness: 0.032006
+			Optimal position: 3.1400 -4.4384 -0.0000 6.2706 -0.0000 7.6722 0.0000 -0.0000
+		\end{verbatim}
+	\end{mdframed}
+	
+	These are the tables you need to fill out:
+	
+	\begin{table}[H]
+		\caption{\codebox{NUM\_VARIABLES = 10} (or dimension $d=10$) in \textbf{all} functions}
+		\label{table:1}
+		\centering
+		\begin{tabular}{l c c c c c c c}
+			\hline
+			Function &  \multicolumn{2}{c}{Bound} & Particles & Iterations &  Optimal Fitness & CPU time (Sec) \\
+			& Lower& Upper&&&\\
+			\hline
+			Griewank  		&  -600   & 600 	& & & & &\\
+			Levy 	  		&  -10    & 10 		& & & & &\\
+			Rastrigin 		&  -5.12  & 5.12 	& & & & &\\
+			Rosenbrock		&  -5     & 10 		& & & & &\\
+			Schwefel 	 	&  -500   & 500 	& & & & &\\
+			Dixon-Price 	&   -10	  & 10 		& & & & &\\
+			Michalewicz 	&   0 	  & $\pi$ 	& & & & &\\
+			Styblinski-Tang & -5 	  & 5  		& & & & &\\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	
+	\begin{table}[H]
+		\caption{\codebox{NUM\_VARIABLES = 50} (or dimension $d=50$) in \textbf{all} functions}
+		\label{table:1}
+		\centering
+		\begin{tabular}{l c c c c c c c}
+			\hline
+			Function &  \multicolumn{2}{c}{Bound} & Particles & Iterations &  Optimal Fitness & CPU time (Sec) \\
+			& Lower& Upper&&&\\
+			\hline
+			Griewank  		&  -600   & 600 	& & & & &\\
+			Levy 	  		&  -10    & 10 		& & & & &\\
+			Rastrigin 		&  -5.12  & 5.12 	& & & & &\\
+			Rosenbrock		&  -5     & 10 		& & & & &\\
+			Schwefel 	 	&  -500   & 500 	& & & & &\\
+			Dixon-Price 	&   -10	  & 10 		& & & & &\\
+			Michalewicz 	&   0 	  & $\pi$ 	& & & & &\\
+			Styblinski-Tang & -5 	  & 5  		& & & & &\\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+		\caption{\codebox{NUM\_VARIABLES = 100} (or dimension $d=100$) in \textbf{all} functions}
+		\label{table:1}
+		\centering
+		\begin{tabular}{l c c c c c c c}
+			\hline
+			Function &  \multicolumn{2}{c}{Bound} & Particles & Iterations &  Optimal Fitness & CPU time (Sec) \\
+			& Lower& Upper&&&\\
+			\hline
+			Griewank  		&  -600   & 600 	& & & & &\\
+			Levy 	  		&  -10    & 10 		& & & & &\\
+			Rastrigin 		&  -5.12  & 5.12 	& & & & &\\
+			Rosenbrock		&  -5     & 10 		& & & & &\\
+			Schwefel 	 	&  -500   & 500 	& & & & &\\
+			Dixon-Price 	&   -10	  & 10 		& & & & &\\
+			Michalewicz 	&   0 	  & $\pi$ 	& & & & &\\
+			Styblinski-Tang & -5 	  & 5  		& & & & &\\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	
+	
+	
+	
+	
+	 
+	\newpage
+	\section{Appendix}
+	
+	\begin{lstlisting}[basicstyle=\small]
+		\\ this is a code box example, copy and paste your codes here
+	\end{lstlisting}
+	
+	\subsection{PSO Pseudo Code}\label{appendixC}
+	
+	You don't need to keep the following algorithm in your report. I'm just showing how you can create one:
+	
+	\begin{algorithm}[h!]
+		\caption{Particle Swarm Optimization (PSO)}
+		\begin{algorithmic}[1]
+			\State Initialize constants: $w \gets 0.7$, $c_1 \gets 1.5$, $c_2 \gets 1.5$ 
+			\State For $i \in [1, \text{NUM\_PARTICLES}]$, $j \in [1, \text{NUM\_VARIABLES}]$, allocate memory for:
+			\State \hspace{\algorithmicindent} $\mathbf{x}[i][j]$, $\mathbf{v}[i][j]$, $\mathbf{p}[i][j]$, $f_\text{pbest}[i]$, $\mathbf{g}$
+			
+			\State \textbf{Initialization:}
+			$f_\text{gbest} \gets \infty$
+			\For{$i \gets 1$ to $\text{NUM\_PARTICLES}$}
+			\For{$j \gets 1$ to $\text{NUM\_VARIABLES}$}
+			\State $\mathbf{x}[i][j]$, $\mathbf{v}[i][j]$, and $\mathbf{p}[i][j]$
+			\EndFor
+			\State $f_\text{pbest}[i] \gets \text{objective\_function}(\text{NUM\_VARIABLES}, \mathbf{x}[i])$
+			\If{$f_\text{pbest}[i] < f_\text{gbest}$}
+			\State $f_\text{gbest} \gets f_\text{pbest}[i]$
+			\State $\mathbf{g} \gets \mathbf{p}[i]$
+			\EndIf
+			\EndFor
+			
+			\State \textbf{PSO Loop:}
+			\For{$\text{iter} \gets 1$ to $\text{MAX\_ITERATIONS}$}
+			\For{$i \gets 1$ to $\text{NUM\_PARTICLES}$}
+			\For{$j \gets 1$ to $\text{NUM\_VARIABLES}$}
+			\State $r_1 \gets \text{random\_double}(0, 1)$, $r_2 \gets \text{random\_double}(0, 1)$
+			\State $\mathbf{v}[i][j] \gets w \cdot \mathbf{v}[i][j] + c_1 \cdot r_1 \cdot (\mathbf{p}[i][j] - \mathbf{x}[i][j]) + c_2 \cdot r_2 \cdot (\mathbf{g}[j] - \mathbf{x}[i][j])$
+			\State $\mathbf{x}[i][j] \gets \mathbf{x}[i][j] + \mathbf{v}[i][j]$
+			\State Clamp $\mathbf{x}[i][j]$ within bounds: 
+			\State \hspace{\algorithmicindent} $\mathbf{x}[i][j] \gets \max(\text{bounds}[j].\text{lowerBound}, \min(\text{bounds}[j].\text{upperBound}, \mathbf{x}[i][j]))$
+			\EndFor
+			\State $f \gets \text{objective\_function}(\text{NUM\_VARIABLES}, \mathbf{x}[i])$
+			\If{$f < f_\text{pbest}[i]$}
+			\State $f_\text{pbest}[i] \gets f$
+			\State $\mathbf{p}[i] \gets \mathbf{x}[i]$
+			\EndIf
+			\If{$f < f_\text{gbest}$}
+			\State $f_\text{gbest} \gets f$
+			\State $\mathbf{g} \gets \mathbf{x}[i]$
+			\EndIf
+			\EndFor
+			\EndFor
+			
+			\State Copy $\mathbf{g}$ to $\text{best\_position}$ and Free allocated memory
+
+			\State \Return $f_\text{gbest}$
+		\end{algorithmic}
+	\end{algorithm}
+	
+	
+	
+\end{document}
